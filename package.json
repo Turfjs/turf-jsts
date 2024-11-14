@@ -4,7 +4,7 @@
   "version": "2.7.1",
   "main": "dist/jsts.min.js",
   "files": [
-    "dist/jsts.min.js"
+    "dist/"
   ],
   "author": "Björn Harrtell <bjorn@wololo.org>",
   "contributors": [

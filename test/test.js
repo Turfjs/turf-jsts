@@ -1,15 +1,37 @@
 const jsts = require("../dist/jsts.min");
 
 console.log("Ensuring JSTS has been built with the correct methods");
-console.assert(jsts !== undefined);
-console.log("BufferOp");
-console.assert(jsts.BufferOp !== undefined, true);
-console.log("BufferOp is present!");
 
-console.log("GeoJSONReader");
-console.assert(jsts.GeoJSONReader !== undefined, true);
-console.log("GeoJSONReader is present");
+if (jsts !== undefined && typeof jsts === "object") {
+  console.log("jsts looks good");
+} else {
+  console.log("jsts undefined or not an object");
+  return;
+}
 
-console.log("GeoJSONWriter");
-console.assert(jsts.GeoJSONWriter !== undefined, true);
-console.log("GeoJSONWriter is present");
+if (jsts.BufferOp !== undefined && typeof jsts.BufferOp === "function") {
+  console.log("jsts.BufferOp looks good");
+} else {
+  console.log("jsts.BufferOp undefined or not a function");
+  return;
+}
+
+if (
+  jsts.GeoJSONReader !== undefined &&
+  typeof jsts.GeoJSONReader === "function"
+) {
+  console.log("jsts.GeoJSONReader looks good");
+} else {
+  console.log("jsts.GeoJSONReader undefined or not a function");
+  return;
+}
+
+if (
+  jsts.GeoJSONWriter !== undefined &&
+  typeof jsts.GeoJSONWriter === "function"
+) {
+  console.log("jsts.GeoJSONWriter looks good");
+} else {
+  console.log("jsts.GeoJSONWriter undefined or not a function");
+  return;
+}

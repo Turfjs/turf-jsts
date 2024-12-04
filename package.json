@@ -1,7 +1,7 @@
 {
   "name": "@turf/jsts",
   "description": "A treeshaken subset of JSTS functions for use within",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "main": "dist/jsts.min.js",
   "files": [
     "dist/"

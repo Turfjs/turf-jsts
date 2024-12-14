@@ -1,37 +1,44 @@
 const jsts = require("../dist/jsts.min");
+const test = require("tape");
 
-console.log("Ensuring JSTS has been built with the correct methods");
+// Ensuring JSTS has been built with the correct methods.
 
-if (jsts !== undefined && typeof jsts === "object") {
-  console.log("jsts looks good");
-} else {
-  console.log("jsts undefined or not an object");
-  return;
-}
+test("jsts", function (t) {
+  t.notEqual(jsts, undefined, "jsts is defined");
 
-if (jsts.BufferOp !== undefined && typeof jsts.BufferOp === "function") {
-  console.log("jsts.BufferOp looks good");
-} else {
-  console.log("jsts.BufferOp undefined or not a function");
-  return;
-}
+  t.equal(typeof jsts, "object", "jsts is an object");
 
-if (
-  jsts.GeoJSONReader !== undefined &&
-  typeof jsts.GeoJSONReader === "function"
-) {
-  console.log("jsts.GeoJSONReader looks good");
-} else {
-  console.log("jsts.GeoJSONReader undefined or not a function");
-  return;
-}
+  t.end();
+});
 
-if (
-  jsts.GeoJSONWriter !== undefined &&
-  typeof jsts.GeoJSONWriter === "function"
-) {
-  console.log("jsts.GeoJSONWriter looks good");
-} else {
-  console.log("jsts.GeoJSONWriter undefined or not a function");
-  return;
-}
+test("jsts.BufferOp", function (t) {
+  t.notEqual(jsts.BufferOp, undefined, "jsts.BufferOp is defined");
+
+  t.equal(typeof jsts.BufferOp, "function", "jsts.BufferOp is a function");
+
+  t.end();
+});
+
+test("jsts.GeoJSONReader", function (t) {
+  t.notEqual(jsts.GeoJSONReader, undefined, "jsts.GeoJSONReader is defined");
+
+  t.equal(
+    typeof jsts.GeoJSONReader,
+    "function",
+    "jsts.GeoJSONReader is a function"
+  );
+
+  t.end();
+});
+
+test("jsts.GeoJSONWriter", function (t) {
+  t.notEqual(jsts.GeoJSONWriter, undefined, "jsts.GeoJSONWriter is defined");
+
+  t.equal(
+    typeof jsts.GeoJSONWriter,
+    "function",
+    "jsts.GeoJSONWriter is a function"
+  );
+
+  t.end();
+});

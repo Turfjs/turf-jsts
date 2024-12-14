@@ -1,15 +1,16 @@
 {
   "name": "@turf/jsts",
-  "description": "A JavaScript library of spatial predicates and functions for processing geometry",
-  "version": "2.7.1",
+  "description": "A treeshaken subset of JSTS functions for use within",
+  "version": "2.7.2",
   "main": "dist/jsts.min.js",
   "files": [
-    "dist/jsts.min.js"
+    "dist/"
   ],
   "author": "Björn Harrtell <bjorn@wololo.org>",
   "contributors": [
     "Denis Carriere <@DenisCarriere>",
-    "James Milner"
+    "James Milner",
+    "James Beard <james@smallsaucepan.com>"
   ],
   "keywords": [
     "Turf",
@@ -24,22 +25,21 @@
   "dependencies": {
     "jsts": "2.7.1"
   },
-  "devDependencies": {
-    "@babel/preset-env": "7.15.6",
-    "@babel/core": "7.15.5",
-    "@rollup/plugin-babel": "5.3.0",
-    "@rollup/plugin-node-resolve": "*",
-    "rollup": "*",
-    "rollup-plugin-buble": "*",
-    "rollup-plugin-terser": "*",
-    "rollup-plugin-uglify": "*"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/turf/turf-jsts.git"
+    "url": "git://github.com/turfjs/turf-jsts.git"
   },
   "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "test": "npm run build && node test/test.js"
+    "build": "rollup -c rollup.config.mjs",
+    "test": "node test/test.js | tap-nirvana"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.26.0",
+    "tap-nirvana": "^1.1.0",
+    "tape": "^5.9.0"
   }
 }
